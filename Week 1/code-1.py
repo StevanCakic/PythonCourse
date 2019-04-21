@@ -10,6 +10,13 @@
 # Štampati rezultat u sledećem formatu:
     # Email adresa korisnika {ime} {prezime} ({godine}) je {email}.
 
+ime = "Stevan"
+prezime = "Čakić"
+godine = 25
+email = "stevancakic93@gmail.com"
+
+print("Email adresa korisnika " + ime + " " + prezime + " (" + str(godine) + ") je " + email + "." )
+# print(f"Email adresa korisnika {ime} {prezime} ({godine}) je {email}.")
 
 
 # Drugi dio
@@ -25,6 +32,12 @@
 # Ako je cijena računara 400e, štampati koliko treba odvojite za plaćanje PDVa
 # Štampati rezultat u sledećem formatu:
     # Cijena računara je 400e. Iznos PDVa je {pdv}, a cijena računara bez PDVa je {cijena bez PDVa}
+
+cijena_racunara = 400
+
+pdv = 0.21 * 400
+
+print(f"Cijena racunara je {cijena_racunara}. Iznos PDVa je {pdv}, a cijena racunara bez PDVa je {cijena_racunara - pdv}")
 
 
 
