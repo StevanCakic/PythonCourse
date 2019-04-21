@@ -1,16 +1,15 @@
-# Prvi dio
 # Liste
 
-# a)
+# Prvi dio
 # Kreirajmo listu koja sadrži različite tipove podataka
 # Isprobajmo idneksiranje i slicing
 # Isporbajmo spajanje više listi u jednu
 
-# b)
+# Drugi dio
 # Metode za liste
 # Isprobajmo ih redom
 
-# c)
+# Treci dio
 # Kreirati matricu 3x3
 # Kako biste izdvojili prvu vrstu matrice?
 # A prvu kolonu?
@@ -25,7 +24,7 @@
 # list_b.extend([4,5])
 # print(list_b)
 
-# d)
+# Četvrti dio
 # Kreirajmo listu a, dodijelimi listi a listu b, i probajmo da dodamo element u listu b
 # Štampati a, štampati b? Ako dodamo element u listu a dešava li se iste?
 # Kako ovo da riješimo?
