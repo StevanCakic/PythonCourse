@@ -1,4 +1,6 @@
 # PythonCourse
+Python tutorial from basics to intermediate
+
 
 #   Week 1
 - Variables, print statement, Numbers
