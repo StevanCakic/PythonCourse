@@ -44,17 +44,11 @@ f.close()
 '''
 
 # Kratko o with
-<<<<<<< HEAD
-=======
-
->>>>>>> 37eafaf0c757c17370a55eb0c8308800a96f9edd
 '''
 with open("./files/file.txt") as f:
     data = f.read()
     print(data)
 '''
-<<<<<<< HEAD
-=======
 
 # Brisanje fajlova i foldera
 
@@ -70,7 +64,6 @@ os.rmdir("myfolder") # za brisanje foldera
 
 '''
 
->>>>>>> 37eafaf0c757c17370a55eb0c8308800a96f9edd
 # Zadatak: 
 # Potrebno je izdvojiti/prikazati sve filmove cija je ocjena veca od unijete i 
 # ciji je zanr filma odgovara unijetom zanru.
