@@ -7,13 +7,12 @@
 # TODO
 
 # Isti zadatak primjenom list comprehension
-
 '''
 squares = [i**2 for i in range(1, 101)]
 print(squares)
 '''
 
-# Sa listu kvadrata brojeva od 1 do 101 vratiti ostatke pri dijeljenju sa 5
+# Za listu kvadrata brojeva od 1 do 101 vratiti ostatke pri dijeljenju sa 5
 
 '''
 squares_mod5 = [i**2 % 5 for i in range(1, 101)]
@@ -21,7 +20,6 @@ print(squares_mod5)
 '''
 
 # Napisati program koji vraca sve filmove iz liste koji pocinju sa slovom T u novu listu
-
 '''
 movies = ['The Godfather', 'The Wizard of Oz', 'Citizen Kane', 
             'The Shawshank Redemption', 'Pulp Fiction']
