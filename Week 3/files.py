@@ -1,6 +1,7 @@
 # Fajlovi
 
 # Prvi dio (read i seek)
+'''
 f = open("./files/file.txt")
 # print(f.read())
 # print(f.read())
@@ -19,8 +20,9 @@ for line in f:
     print(line)
 
 f.close() # zatvaranje fajla
+'''
 
-# Drugi dio (write i append)
+# Drugi dio (write, append i close)
 '''
 f = open("./files/demofile2.txt", "a")
 f.write("Now the file has more content!")
@@ -42,11 +44,33 @@ f.close()
 '''
 
 # Kratko o with
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37eafaf0c757c17370a55eb0c8308800a96f9edd
 '''
 with open("./files/file.txt") as f:
     data = f.read()
     print(data)
 '''
+<<<<<<< HEAD
+=======
+
+# Brisanje fajlova i foldera
+
+'''
+import os
+if os.path.exists("demofile.txt"):
+    os.remove("demofile.txt")
+else:
+    print("The file does not exist")
+
+import os
+os.rmdir("myfolder") # za brisanje foldera
+
+'''
+
+>>>>>>> 37eafaf0c757c17370a55eb0c8308800a96f9edd
 # Zadatak: 
 # Potrebno je izdvojiti/prikazati sve filmove cija je ocjena veca od unijete i 
 # ciji je zanr filma odgovara unijetom zanru.
