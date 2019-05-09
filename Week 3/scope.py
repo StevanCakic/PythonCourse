@@ -40,6 +40,7 @@ print("x van funkcije je: ", x)
 '''
 
 # Primjer 3
+'''
 x = 50
 def func():
     global x
@@ -50,3 +51,4 @@ def func():
 print("x prije poziva funkcije: ", x)
 func()
 print("x van funkcije je: ", x)
+'''
