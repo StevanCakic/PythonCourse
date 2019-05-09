@@ -47,6 +47,8 @@ l = list(range(10))
 
 even_elems = filter(even_check_lambda, l)
 
+# TODO Kako ovo da prepravimo?
+# Kod Python2 ovo radi ocekivano
 print(even_elems)
 '''
 
@@ -59,7 +61,7 @@ city_temp_c = [("Podgorica", 20), ("Niksic", 15), ("Budva", 18), ("Cetinje", 16)
 # Potrebno je da vratimo listu torki (grad, temp_F) 
 # Formula za konverziju iz C u F -> 9/5 * C + 32 
 city_temp_f = map(lambda elem: (elem[0], (9 / 5) * elem[1] + 32), city_temp_c)
-print(city_temp_f)
+print(list(city_temp_f))
 '''
 
 # Sabiranje elemenata iz dvije razlicite liste
@@ -68,7 +70,7 @@ a = [1, 2, 3]
 b = [4, 5, 6]
 
 sum_lists = map(lambda x, y: x + y, a, b)
-print(sum_lists)
+print(list(sum_lists))
 '''
 
 # Reduce - x1, x2, x3, ..., xN => f( f( f(x1, x2), x3), ...., xN)
@@ -79,7 +81,6 @@ print(sum_lists)
 
 '''
 from functools import reduce
-
 
 a = [1, 2, 3, 4]
 suma = reduce(lambda x, y: x + y, a)
