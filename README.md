@@ -12,3 +12,4 @@ Python tutorial from basics to intermediate
 
 #   Week 3
 - Class 5: Dictionaries, Sets, List comprehension, Files
+- Class 6: GitHub, Functional programming, Scope
