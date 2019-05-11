@@ -70,10 +70,10 @@ os.rmdir("myfolder") # za brisanje foldera
 
 # Korisniku pri unosi napomenutu da su ocjene od 1 do 10, a osim toga
 # treba napomenuti i koje zanrove moze da odabere.
-# Ako korisnik unese podatke pogresno, treba da mi se prikaze greska i da mu se napomene
+# Ako korisnik unese podatke pogresno, treba da mu se prikaze greska i da mu se napomene
 # da opet unosi novi input
 
-# Napomena: Kreirati fajl filmovi.txt u kome se svaki film, pojedinacno, cuva u jednom redom,
+# Napomena: Kreirati fajl filmovi.txt u kome se svaki film, pojedinacno, cuva u jednom redu,
 # tj. ako imate unos od 5 filmova, fajl treba da sadrzi 5 linija. 
 # Takodje, svaki film je opisan: nazivom, ocjenom, godina izlaska i zanrovima
     # Atributi filma odvojeni su sa ;
