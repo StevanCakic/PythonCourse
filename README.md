@@ -15,4 +15,5 @@ Python tutorial from basics to intermediate
 - Class 6: Exercises, GitHub
 
 #   Week 4
-- Class 7: Functional programming, Scope
+- Class 7: Functional programming
+- Class 8: Functional programming part 2, Scope, OOP
