@@ -16,7 +16,7 @@ Python tutorial from basics to intermediate
 
 #   Week 4
 - Class 7: Functional programming
-- Class 8: Functional programming part 2, Scope, OOP-part1
+- Class 8: FP-part2, Scope, OOP-part1
 
 #   Week 5
 - Class 9: OOP-part2, exceptions, CSV-part1
