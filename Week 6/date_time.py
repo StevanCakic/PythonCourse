@@ -1,7 +1,7 @@
 import datetime
-
+# Prvi dio
 # Sta ako nazovete fajl kao modul?
-
+'''
 print(dir(datetime))
 # print(help(datetime.date))
 
@@ -23,10 +23,12 @@ print(second_mill + dt)
 # Šta misliti kako biste vidjeli koje je datum bio prije 100 dana u odnosu na 1.1.2000.
 # TODO
 
+'''
 # Drugi dio
 # Formatiranje datuma
 # Otvorimo dokument gdje se nalaze formati za datume
-
+'''
+gvr = datetime.date(1951, 1, 31)
 # Day name, Month name Day-#, Year
 
 # old way
@@ -58,9 +60,6 @@ now = datetime.datetime.now()
 print(now)
 print(now.microsecond)
 
-
-# Treci dio
-
 sputnik = "10/4/1957"
 moon_landing = "7/20/1969"
 
@@ -76,3 +75,4 @@ from dateutil.relativedelta import relativedelta
 date_difference_years = relativedelta(now, moon_landing_datetime).years
 print(date_difference_years)
 
+'''
