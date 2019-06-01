@@ -13,9 +13,17 @@ class Book:
 
 
 book = Book("Uvod u programiranje", "Marko Markovic", 240)
+book2 = Book("Uvod u programiranje", "Marko Markovic", 140)
+books = []
+books.append(book)
+books.append(book2)
 
 lista = [1, 2, 3]
 print(lista) # kako Python zna kako da stampa listu?
 print(book)
+
+for book in books:
+    print(book)
+
 print(len(book))
 del book
