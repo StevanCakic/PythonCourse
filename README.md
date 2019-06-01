@@ -23,3 +23,4 @@ Python tutorial from basics to intermediate
 
 #   Week 6
 - Class 10: Datetime, CSV-part2
+- Test
