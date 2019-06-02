@@ -27,7 +27,7 @@ print(next(randomIterator))
 '''
 
 
-with open("google_stock_data.csv", newline="") as file: # newline zbog /n kod nekih OS
+with open("../assets/google_stock_data.csv", newline="") as file: # newline zbog /n kod nekih OS
     reader = csv.reader(file)
     header = next(reader) # Ucitaj prvi red
     print(header)
