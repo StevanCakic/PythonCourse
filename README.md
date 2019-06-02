@@ -22,5 +22,9 @@ Python tutorial from basics to intermediate
 - Class 9: OOP-part2, exceptions, CSV-part1
 
 #   Week 6
-- Class 10: Datetime, CSV-part2
+- Class 10: Datetime module, CSV-part2
 - Test
+
+#   Week 7
+- Class 11: CSV exercises, JSON
+- Class 12: APIs (introduction), request module
