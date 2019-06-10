@@ -5,6 +5,7 @@ import json
 # TODO
 
 # 2. Napisati sledece funkcije:
+    # 0) Napisati funkciju koja vraća article na osnovu vrijednosti atributa title
     # a) insert_new_comment (title, author, description)
         # Omogućava dodavanje komentara. Prije dodavanja komentara odraditi adekvatnu validaciju (title unique). 
         # Ako je unos ispravan u listu se dodaje novi dict oblika {title, author, description}.               
