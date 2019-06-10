@@ -27,4 +27,4 @@ Python tutorial from basics to intermediate
 
 #   Week 7
 - Class 11: CSV exercises, JSON
-- Class 12: APIs (introduction), request module
+- Class 12: CSV exercises (part-2), APIs (introduction), urllib module, JSON exercises
