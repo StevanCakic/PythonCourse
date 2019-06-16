@@ -1,6 +1,17 @@
 import pymongo
 from pymongo_conf import mycol,myclient # ne moramo da importujemo cijeli modul
-import pymongo_insert # da bismo popunili bazu podacima koje cemo da izvlacimo iz baze
+
+myclient.drop_database("mydatabase")
+
+mylist = [
+  { "name": "Amy", "address": {"name": "Apple st", "number": 652 }, "age": 35},
+  { "name": "Hannah", "address": {"name": "Mountain", "number": 21}, "age": 42},
+  { "name": "Michael", "address": {"name":  "Valley", "number": 345 }, "age": 37},
+  { "name": "Sandy", "address": {"name":  "Ocean blvd", "number": 2 }, "age": 50},
+  { "name": "Ana", "address": {"name":  "Valley", "number": 29 }, "age": 62}
+]
+
+x = mycol.insert_many(mylist)
 
 x = mycol.find_one()
 
@@ -37,18 +48,6 @@ for x in mycol.find({},{ "name": 1, "address": 0 }):
     # Naci korisnike cije je ime Susan
     # Naci korisnika/e cije je ime Susan i adresa One way 98  
 
-myclient.drop_database("mydatabase")
-
-mylist = [
-  { "name": "Amy", "address": {"name": "Apple st", "number": 652 }, "age": 35},
-  { "name": "Hannah", "address": {"name": "Mountain", "number": 21}, "age": 42},
-  { "name": "Michael", "address": {"name":  "Valley", "number": 345 }, "age": 37},
-  { "name": "Sandy", "address": {"name":  "Ocean blvd", "number": 2 }, "age": 50},
-  { "name": "Ana", "address": {"name":  "Valley", "number": 29 }, "age": 62}
-]
-
-x = mycol.insert_many(mylist)
-
 # II) like($regex), $gt(e), $ne, $eq, $lt(e), $in, $and, $or, ugnijezdeni objekti
     # Naci sve korisnike cije ime pocinje sa A
     # Naci sve korisnike koji imaju vise od 40 godina
@@ -61,4 +60,6 @@ x = mycol.insert_many(mylist)
     # Hint1: db.customers.find( { $or: [ { age: { $lt: value } }, { name: value } ] } )
     # Hint2: db.customers.find({ "address.name": { $regex: /N/ }}), ^ - starts with, $ - ends with
     # Hint3: db.customers.find({ _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } })
+
+
 

@@ -13,8 +13,8 @@ doc2 = pymongo_conf.mycol.insert_one(mydict2)
 print(doc2.inserted_id)
 
 # Insert many documents
-
 '''
+
 pymongo_conf.myclient.drop_database("mydatabase") # ispraznimo bazu
 mylist = [
   { "name": "Amy", "address": "Apple st 652"},
@@ -36,6 +36,6 @@ x = pymongo_conf.mycol.insert_many(mylist)
 
 #print list of the _id values of the inserted documents:
 print(x.inserted_ids)
-
 '''
+
 # Sta je _id
