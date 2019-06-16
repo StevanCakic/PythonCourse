@@ -32,3 +32,6 @@ Python tutorial from basics to intermediate
 #   Week 8
 - Class 13: Urllib module (p2), JSON exercises
 - Class 14: Dekoratori, MongoDB (uvod)
+
+#   Week 9
+- Class 15: PyMongo, part1
