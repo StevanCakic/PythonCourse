@@ -34,4 +34,5 @@ Python tutorial from basics to intermediate
 - Class 14: Dekoratori, MongoDB (uvod)
 
 #   Week 9
-- Class 15: PyMongo, part1
+- Class 15: PyMongo, part1 (INSERT, FIND - intro)
+- Class 16: PyMongo, part2 (FIND - queries, DELETE, UPDATE)
