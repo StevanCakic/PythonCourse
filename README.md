@@ -35,4 +35,7 @@ Python tutorial from basics to intermediate
 
 #   Week 9
 - Class 15: PyMongo, part1 (INSERT, FIND - intro)
-- Class 16: PyMongo, part2 (FIND - queries, DELETE, UPDATE)
+- Class 16: PyMongo, part2 (FIND - queries, aggregation)
+
+#   Week 10
+- Class 17: PyMongo, part3 (DELETE, UPDATE, schema validation, exercises)
