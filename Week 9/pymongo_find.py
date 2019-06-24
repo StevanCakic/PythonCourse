@@ -1,6 +1,6 @@
 import pymongo
-from pymongo_conf import mycol,myclient # ne moramo da importujemo cijeli modul
-
+from pymongo_conf import mycol, myclient # ne moramo da importujemo cijeli modul
+'''
 myclient.drop_database("mydatabase")
 
 mylist = [
@@ -31,7 +31,7 @@ print("-------")
 # vraca sve dokumente ali bez njihove adrese
 for x in mycol.find({},{ "address": 0 }):
   print(x)
-
+'''
 print("-------")
 # ERROR jer se komb 0 i 1
 '''
@@ -42,24 +42,59 @@ for x in mycol.find({},{ "name": 1, "address": 0 }):
 # Queries
 
 # I) Jednostavni upiti
-    # Odkomentarisati dio iz prethodnom primjera insert many
-    # Naci korisnika/e cija je vrijednost name = "Amy"
-    # Naci korisnika/e cija je vrijednost address = "Central st 954" i vratiti samo name
-    # Naci korisnike cije je ime Susan
-    # Naci korisnika/e cije je ime Susan i adresa One way 98  
+# Naci korisnika/e cija je vrijednost name = "Amy"
+dok = list(mycol.find({"name": "Amy"}))
+print("---------")
+print(dok)
+
+# Naci korisnika/e cija je vrijednost address = "Valley" i vratiti samo name
+dok2 = list(mycol.find({"address.name": "Valley"}, {"_id":0, "name": 1}))
+print("---------")
+print(dok2)
+
+# Naci korisnike cije je ime Susan
+dok3 = list(mycol.find({"name": "Susan"}))
+print("---------")
+print(dok3)
+  
+# Naci korisnika/e cije je ime Ana i adresa Valley 29
+dok4 = list(mycol.find({"name":"Ana", "address.name":"Valley", "address.number": 29}))
+print("---------")
+print(dok4)
 
 # II) like($regex), $gt(e), $ne, $eq, $lt(e), $in, $and, $or, ugnijezdeni objekti
-    # Naci sve korisnike cije ime pocinje sa A
-    # Naci sve korisnike koji imaju vise od 40 godina
-    # Naci sve korisnike koji imaju vise od 30, a manje od 40 godina
-    # Naci sve korisnike koji imaju vise od 30 ili cije je ime Sandy
-    # Naci sve korisnike ciji je broj adrese 21
-    # Naci sve korisnike cije ime pocinje sa A, a mladnji su od 50 godina (vrati samo ime)
-    # Naci sve korisnike cija vrijednost za age nije 35
+# Naci sve korisnike cije ime pocinje sa A
+dok5 = list(mycol.find({"name": {"$regex": "^A"}}))
+print("---------")
+print(dok5)
+# Naci sve korisnike koji imaju vise od 40 godina
+dok6 = mycol.find({"age": {"$gt": 40}})
+print("---------")
+print(list(dok6))
+# Naci sve korisnike koji imaju vise od 30, a manje od 40 godina
+dok7 = mycol.find({"age": {"$gt": 30, "$lt": 40}})
+print("---------")
+print(list(dok7))
+# Naci sve korisnike koji imaju vise od 30 ili cije je ime Sandy
+dok8 = mycol.find({"$or":[{"age": {"$gte": 51}}, {"name": "Sandy"}]})
+print("---------")
+print(list(dok8))
+# Naci sve korisnike ciji je broj adrese 21
+dok9 = mycol.find({"address.number": 21})
+print("---------")
+print(list(dok9))
+# Naci sve korisnike cije ime pocinje sa A, a mladnji su od 50 godina (vrati samo ime)
+dok10 = mycol.find({"name": {"$regex": "^A"}, "age": {"$lt": 50}}, {"_id": 0, "name": 1})
+print("---------")
+print(list(dok10))
+# Naci sve korisnike cija vrijednost za age nije 35
+dok11 = mycol.find({"age": {"$ne": 35}})
+print("---------")
+print(list(dok11))
 
-    # Hint1: db.customers.find( { $or: [ { age: { $lt: value } }, { name: value } ] } )
-    # Hint2: db.customers.find({ "address.name": { $regex: /N/ }}), ^ - starts with, $ - ends with
-    # Hint3: db.customers.find({ _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } })
+# Hint1: db.customers.find( { $or: [ { age: { $lt: value } }, { name: value } ] } )
+# Hint2: db.customers.find({ "address.name": { $regex: /N/ }}), ^ - starts with, $ - ends with
+# Hint3: db.customers.find({ _id: { $in: [ 5, ObjectId("507c35dd8fada716c89d0013") ] } })
 
 
 

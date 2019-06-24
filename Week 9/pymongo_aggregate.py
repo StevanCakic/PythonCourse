@@ -11,7 +11,7 @@ mylist = [
 
 x = mycol.insert_many(mylist)
 
-# Sortira po kljucu name u opadajucem poretku, po default-u u rastucem
+# Sortira po kljucu age u opadajucem poretku, po default-u u rastucem
 mydoc_sorted = mycol.find().sort("age", -1)
 print(list(mydoc_sorted))
 print("\n\n")
