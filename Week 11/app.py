@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
 import pymongo
 from bson.json_util import dumps
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-myclient.drop_database("mydatabase") # posle cemo govoriti o ovome
+myclient.drop_database("mydatabase")
 mydb = myclient["mydatabase"]
 mycol = mydb["users"]
 
@@ -25,14 +25,14 @@ app = Flask(__name__)
 def create_user():
     request_data = request.get_json()
     try:
-        new_store = {
+        new_user = {
             "name": request_data["name"],
             "email": request_data["email"]
         }
-        mycol.insert_one(new_store)
-        return dumps(new_store)
+        mycol.insert_one(new_user)
+        return dumps(new_user)
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return dumps({"error": str(e)})
     
 
 # GET /user/<string:name> - vraca usera po username-u
@@ -42,7 +42,7 @@ def get_user(name):
         user = list(mycol.find({"name": name}))
         return dumps(user)
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return dumps({"error": str(e)})
 
 # GET /users - vraca sve usere
 @app.route("/users")
@@ -51,6 +51,6 @@ def get_users():
         users = list(mycol.find())
         return dumps(users)
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return dumps({"error": str(e)})
 
 app.run(port=5000)
