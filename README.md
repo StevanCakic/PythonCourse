@@ -39,3 +39,6 @@ Python tutorial from basics to intermediate
 
 #   Week 10
 - Class 17: PyMongo, part3 (DELETE, UPDATE, schema validation, exercises)
+
+#   Week 11
+- Class 18: Flask, part1
