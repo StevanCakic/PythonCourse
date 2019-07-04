@@ -1,6 +1,8 @@
 from flask import Flask, request
 import pymongo
 from bson.json_util import dumps
+import os
+
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 myclient.drop_database("mydatabase")
