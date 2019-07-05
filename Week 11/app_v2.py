@@ -11,13 +11,13 @@ mycol = mydb["users"]
 app = Flask(__name__)
 api = Api(app)
 
-class User(Resource):
+class Student(Resource):
 
     def get(self, name):
         try:
-            user = list(mycol.find({"name": name}))
-            if user:
-                return user, 200
+            student = list(mycol.find({"name": name}))
+            if student:
+                return student, 200
             else:
                 return None, 404
         except Exception as e:
@@ -28,28 +28,29 @@ class User(Resource):
             # Ako dodamo force=True, nije neophodno da se salje Content-Type:"application/json"
             # Ako dodamo silent=True, vraca umjesto greske None (null)
             request_data = request.get_json() # ako ne setujemo u zahtjevu Content-Type:"application/json" ili posaljemo invalid JSON, greska
-            new_user = {
+            new_student = {
                 "name": request_data["name"],
-                "email": request_data["email"]
+                "email": request_data["email"],
+                "index": request_data["index"]
             }
-            mycol.insert_one(new_user)
-            return new_user, 201
+            mycol.insert_one(new_student)
+            return new_student, 201
         except Exception as e:
             return {"error": str(e)}, 400
 
-class UserList(Resource):
+class StudentList(Resource):
 
     def get(self):
         try:
-            users = list(mycol.find())
-            if users:
-                return users, 200
+            students = list(mycol.find())
+            if students:
+                return students, 200
             else:
                 return None, 404 
         except Exception as e:
             return dumps({"error": str(e)})
 
-api.add_resource(User, "/user/<string:name>", "/user")
-api.add_resource(UserList, "/users")
+api.add_resource(Student, "/student/<string:name>", "/student")
+api.add_resource(StudentList, "/students")
 
 app.run(port=5000, debug=True)
