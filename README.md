@@ -42,3 +42,4 @@ Python tutorial from basics to intermediate
 
 #   Week 11
 - Class 18: Flask, part1
+- Class 19: Flask, part2, JWT
