@@ -1,4 +1,4 @@
-from User import user
+from user import User
 from werkzeug.security import safe_str_cmp
 
 '''
