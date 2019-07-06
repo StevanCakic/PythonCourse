@@ -4,6 +4,7 @@ from bson.json_util import dumps
 import pymongo
 from flask_jwt import JWT, jwt_required
 from security import identity, authenticate
+import json
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 #myclient.drop_database("mydatabase")
@@ -62,22 +63,26 @@ class Student(Resource):
         try:
             '''
             request_data = request.get_json()'''
-
+            student = list(mycol.find({"name": name}))
             parser = reqparse.RequestParser()
-            parser.add_argument("name", type=str, required=True)
-            parser.add_argument("email", type=str)
-            parser.add_argument("index", type=str)
-            
+            is_required = False
+            if len(student) == 0: # ako ne postoji
+                is_required = True
+            else:
+                student = student[0]
+            parser.add_argument("name", type=str, required=is_required)
+            parser.add_argument("email", type=str, required=is_required)
+            parser.add_argument("index", type=str, required=is_required)
             # Pazite da parametre koje ovdje rucno ne dodate nece biti izdvojeni iz linka, npr. posaljete parametar another=1 => request_data["another"] -> KeyError
             request_data = parser.parse_args()
-            student = list(mycol.find({"name": name}))
+            
             new_student = {
-                "name": request_data["name"],
-                "email": request_data["email"],
-                "index": request_data["index"]
+                "name":request_data["name"] if request_data["name"] else student["name"] ,
+                "email": request_data["email"] if request_data["email"] else student["email"],
+                "index": request_data["index"] if request_data["index"] else student["index"]
             }
             
-            if len(student) == 0:
+            if not student:
                 mycol.insert_one(new_student)
                 return dumps(new_student), 201
             else:
