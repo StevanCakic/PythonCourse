@@ -61,15 +61,15 @@ class Student(Resource):
         
         try:
             '''
+            request_data = request.get_json()'''
+
             parser = reqparse.RequestParser()
-            parser.add_argument("name", type="string", required=False, help="This field cant be left blank.")
-            parser.add_argument("email", type="string", required=False, help="This field cant be left blank.")
-            parser.add_argument("index", type="string", required=False, help="This field cant be left blank.")
+            parser.add_argument("name", type=str, required=True)
+            parser.add_argument("email", type=str)
+            parser.add_argument("index", type=str)
             
             # Pazite da parametre koje ovdje rucno ne dodate nece biti izdvojeni iz linka, npr. posaljete parametar another=1 => request_data["another"] -> KeyError
             request_data = parser.parse_args()
-            '''
-            request_data = request.get_json()
             student = list(mycol.find({"name": name}))
             new_student = {
                 "name": request_data["name"],
@@ -81,8 +81,8 @@ class Student(Resource):
                 mycol.insert_one(new_student)
                 return dumps(new_student), 201
             else:
-                updated_student = mycol.update_one({"name": name}, {"$set": new_student})
-                return {"message":"Updated"}, 200
+                mycol.update_one({"name": name}, {"$set": new_student})
+                return {"message": "Updated"}, 200
 
         except Exception as e:
             return {"error": str(e)}, 400
