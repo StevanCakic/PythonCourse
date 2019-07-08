@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_restful import Resource, Api, reqparse
 from bson.json_util import dumps
 import pymongo
@@ -7,9 +7,35 @@ from security import identity, authenticate
 import json
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-#myclient.drop_database("mydatabase")
+# myclient.drop_database("mydatabase")
 mydb = myclient["mydatabase"]
-mycol = mydb["students"]
+vv = {
+      "$jsonSchema": {
+          "bsonType": "object",
+          "required": [ "name", "email", "index"],
+          "properties": {
+            "name": {
+               "bsonType": "string",
+               "description": "must be a string and is required",
+               "minLength": 4
+            },
+            "email": {
+               "bsonType": "string",
+               "description": "must be a number and is required"
+            },
+            "index": {
+               "bsonType": "string",
+               "description": "must be a number and is required"
+            }
+          }
+      }
+    }
+
+if not "students" in mydb.list_collection_names():
+    mycol = mydb.create_collection("students", validator=vv)
+    mycol.create_index("index", unique=True)
+else:
+    mycol = mydb["students"]
 
 app = Flask(__name__)
 
@@ -20,14 +46,14 @@ api = Api(app)
 jwt = JWT(app, authenticate, identity) # /auth
 
 class Student(Resource):
-    @jwt_required()
+    
     def get(self, name):
         try:
             student = list(mycol.find({"name": name}))
             if student:
                 return dumps(student), 200
             else:
-                return None, 404
+                return {"message": "Student with this name not found."}, 404
         except Exception as e:
             return {"error": str(e)}, 400
 
@@ -47,26 +73,26 @@ class Student(Resource):
         except Exception as e:
             return {"error": str(e)}, 400
     
+    @jwt_required()
     def delete(self, name):
         try:
-            print(name)
-            student = mycol.delete_one({"name": name})
+            student = mycol.find_one_and_delete({"name": name})
             if student:
-                return {"message": "Item deleted."}, 200
+                return {"message": "Student deleted."}, 200
             else:
-                return None, 404
+                return {"message": "Student with this name not found."}, 404
         except Exception as e:
             return {"error": str(e)}, 400
     
+    @jwt_required()
     def put(self, name):
-        
         try:
             '''
             request_data = request.get_json()'''
             student = list(mycol.find({"name": name}))
             parser = reqparse.RequestParser()
             is_required = False
-            if len(student) == 0: # ako ne postoji
+            if not student: # ako ne postoji
                 is_required = True
             else:
                 student = student[0]
@@ -93,14 +119,13 @@ class Student(Resource):
             return {"error": str(e)}, 400
 
 class StudentList(Resource):
-
     def get(self):
         try:
             students = list(mycol.find())
             if students:
                 return dumps(students), 200
             else:
-                return None, 404 
+                return {"message": "No students found."}, 404
         except Exception as e:
             return dumps({"error": str(e)})
 
