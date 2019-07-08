@@ -16,7 +16,7 @@ class Student(Resource):
     def get(self, name):
         try:
             student = list(mycol.find({"name": name}))
-            if student:
+            if len(student) > 0:
                 return dumps(student), 200
             else:
                 return None, 404
