@@ -43,3 +43,7 @@ Python tutorial from basics to intermediate
 #   Week 11
 - Class 18: Flask, part1
 - Class 19: Flask, part2, JWT
+
+#   Week 12
+- Class 20: Flask, part3
+- Class 21: PyMongo aggregate, logger 
