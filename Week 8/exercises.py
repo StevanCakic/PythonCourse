@@ -2,7 +2,7 @@ from urllib import request
 import json
 import csv
 # Otvoriti url https://api.myjson.com/bins/1cqtp5 (ne zaboraviti read pa decode)
-content = json.loads((request.urlopen("https://jsonblob.com/api/1226137309044137984").read()).decode())
+content = json.loads((request.urlopen("http://jsonblob.com/api/1226162686332362752).read()).decode())
 
 # Napisati funkciju koja vraća article na osnovu vrijednosti atributa title
 def get_article(title):
