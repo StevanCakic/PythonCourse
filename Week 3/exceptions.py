@@ -53,9 +53,7 @@ if __name__ == "__main__":
         print("4 - Indeks u listi")
         print("5 - Unos godina")
         print("0 - Izlaz")
-
         izbor = input("Unesite broj opcije: ")
-
         if izbor == "1":
             dijeljenje()
         elif izbor == "2":
