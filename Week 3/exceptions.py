@@ -42,8 +42,7 @@ def unos_godina():
         print(provjeri_godine(godine))
     except ValueError as e:
         print(f"Greška: {e}")
-
-# Glavni meni za testiranje
+        
 if __name__ == "__main__":
     while True:
         print("\nIzaberite opciju:")
